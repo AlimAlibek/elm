@@ -12,7 +12,6 @@ let router = new Router({
             name: 'login',
             component: () => import('./views/auth/login'),
             meta: {
-                layout: 'main',
                 requiresAuth: false
             }
         },
@@ -21,7 +20,6 @@ let router = new Router({
             name: 'index',
             component: () => import('./views/index'),
             meta: {
-                layout: 'main',
                 requiresAuth: true
             }
         },

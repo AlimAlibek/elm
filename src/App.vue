@@ -1,8 +1,8 @@
 <template>
-  <div id="app">
-    <component :is="layout">
-      <router-view/>
-    </component>
+  <div class="container" id="app">
+    <TopHeader/>
+    <MiddleBody/>
+    <BottomFooter/>
   </div>
 </template>
 
@@ -12,9 +12,15 @@ export default {
   name: 'App',
   computed: {
     ...mapGetters([]),
-    layout: function(){
-      return (this.$route.meta.layout) + '-layout'
-    },
   },
+  components: {
+    TopHeader: () => import('./components/header'),
+    MiddleBody: () => import('./components/body'),
+    BottomFooter: () => import('./components/footer'),
+  }
 }
 </script>
+
+<style>
+@import "assets/css/style.css";
+</style>
