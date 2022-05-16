@@ -5,6 +5,7 @@ import vueNotification from 'vue-notification';
 import router from './router';
 import store from './store/store';
 import axios from 'axios';
+import vuetify from './plugins/vuetify'
 
 Vue.use(vueNotification);
 
@@ -29,5 +30,6 @@ if (token) {
 new Vue({
   router,
   store,
-  render: h => h(App),
+  vuetify,
+  render: h => h(App)
 }).$mount('#app');
