@@ -7,7 +7,6 @@
             'feedback_desktop': desktop,
             'feedback_mobile': mobile
         }"
-
     >
         <div class="feedback-title"> ОБРАТНАЯ СВЯЗЬ </div>
 
@@ -15,6 +14,7 @@
           <v-btn
             icon
             :x-small="!mobile"
+            :x-large="mobile"
           >
             <v-icon
                 color="#277A0E"
@@ -25,10 +25,10 @@
           </v-btn>
 
           <template v-if="mobile">
-              <v-btn icon>
-                  <img :src="callIcon" />
+              <v-btn icon x-large>
+                <img :src="callIcon" />
               </v-btn>
-              <v-btn icon >
+              <v-btn icon x-large>
                   <img :src="messageIcon"/>
               </v-btn>
           </template>
@@ -181,6 +181,7 @@ export default {
     }
 
 
+
     .feedback_desktop .feedback-title {
         margin-bottom: 0;
     }
@@ -201,7 +202,9 @@ export default {
     .feedback_desktop.feedback_footer .feedback-number button {
         margin: 0 10px 14px 0;
     }
-
+    .feedback_laptop {
+        min-width: 150px;
+    }
     .feedback_laptop .feedback-title {
         display: none;
     }

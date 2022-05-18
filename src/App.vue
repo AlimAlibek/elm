@@ -1,10 +1,12 @@
 <template>
   <v-app>
-      <TheHeader />
+    <TheHeader />
 
-    <v-main>
-
-    </v-main>
+    <main>
+      <div style="
+        height: 2000px
+      "></div>
+    </main>
 
     <v-footer app>
 
@@ -14,18 +16,15 @@
 
 <script>
 import TheHeader from '@/components/TheHeader';
-// import FeedbackInfo from '@/components/FeedbackInfo';
-
 
 export default {
   name: 'App',
 
   components: {
     TheHeader,
-    // FeedbackInfo
   },
 
-data() {
+        data() {
           return {
             currentPage: {},
             pages: [
@@ -45,8 +44,27 @@ data() {
                     name: 'Отзывы',
                     path: '/reviews'
                 },
-            ]
+            ],
+
+            // windowWidth: document.body.clientWidth
           }
+        },
+
+        computed: {
+          screenWidth() {
+            console.log(this.$vuetify.breakpoint)
+            // return (this.$vuetify.breakpoint.width > 1263)
+            //   ? 'large'
+            //   : (this.$vuetify.breakpoint.width < 1264 && this.$vuetify.breakpoint.width > 820)
+            //   ? 'middle' : 'small'
+
+            return (
+              this.$vuetify.breakpoint.sm ? 'small'
+              : this.$vuetify.breakpoint.md ? 'middle'
+              : this.$vuetify.breakpoint.lg ? 'large'
+              : this.$vuetify.breakpoint.xl ? 'x-large' : 'xs'
+            )
+          },
         }
 };
 </script>
